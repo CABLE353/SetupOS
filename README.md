@@ -1,6 +1,11 @@
-Hello! CABLE53 here; these are the instructions on how to use reverse pixie booting(trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly(& compete with the mac DFU deployment; you're welcome ms🙄).
+# Welcome to SetupOS!!! #
 
-With PXE booting starting to fall out of fashion due to security, CEO's, & whatnot; I've decided to revive this functionality in a simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it! Using the Installation Media(provided by either ms itself or your entity), the SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. A series of checks will then be run when the script first starts. The first one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way. The seccond check initializes the network card a few times with the default drivers included with WindowsPE, & the 3rd & last check will display output of the ```ipconfig``` command. A pause will be given after to give a chance to view the output of the ```ipconfig``` command. Then it will ```cls``` & finally load into the DLA menu explained more in the Readme file below.
+
+
+
+Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler & primitive reverse pixie booting without the PXE"😁(trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly(& help to hopefully better compete with the mac DFU deployment; you're welcome ms🙄).
+
+With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it! Using the Installation Media(provided by either ms itself or your entity), the SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. A series of checks will then be run when the script first starts. The first one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way. The seccond check initializes the network card a few times with the default drivers included with WindowsPE, & the 3rd & last check will display output of the ```ipconfig``` command. A pause will be given after to give a chance to view the output of the ```ipconfig``` command. Then it will ```cls``` & finally load into the DLA menu explained more in the Readme file below.
 
 I Also made sure that in each ```.bat``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to get what you want/need. I'm a bit of a noobe, so please be patient. This is my first GitHub Release or whatever it's called. This all took me a few months to update & grind out but I finally got a working concept, & it's something cool that I wanted to share to whomever wants to test it & maybe make better(less clunky).
 
@@ -10,7 +15,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 
 
------------------------------------------Tools you need----------------------------------------------
+## -----------------------------------------Tools You'll Need---------------------------------------------- ##
 
 	A host computer(a computer that will host all of the installation media files & folders offline).
 
@@ -32,7 +37,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 
 
-------------------------------------------Meeting The Files & Folders-------------------------------------------
+## ------------------------------------------Meeting The Files & Folders------------------------------------------- ##
 
 ```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive.
 
@@ -51,7 +56,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
 
 
--------------------------------------------Setup Instructions---------------------------------
+## -------------------------------------------Setup Instructions--------------------------------- ##
 
 **Step 1:**   Start your host computer with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
 
@@ -74,7 +79,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 Congrats!! Your setup should now be ready to wheel-and-deal the Installation of Windows 11 & run other tools for Surplus PC's!
 
 
-------------------------------------------Using The Setup-------------------------------------------
+## ------------------------------------------Using The Setup------------------------------------------- ##
 
 **Step 1:**  Connect as many Client PC's as you have Ethernet cables & chargers.
 **Step 2:**  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
@@ -89,20 +94,21 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 **Step 8:**  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the list (depending on your situation). When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program. If that doesn't work restart the process from Using The Setup Step 2 & make sure everything's connected correctly & securely.
 
 
-----------------------------------------Extra Things To Note------------------------------------------
-The Windows 11 Automated Setup keystrokes every mouse click for you. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY TO STOP IT. You don't have to touch the Client PC again until you start doing the OOBE(Out Of Box Experience) setup options after Windows installs(like keyboard layout & waiting for the Church Support user to automatically login).
+## ----------------------------------------Extra Things To Note------------------------------------------ ##
 
-The seccond option available (Automated DiskPart) is for wiping Surplus PC's.
+The Windows 11 Automated Setup keystrokes every mouse click for you. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY TO STOP IT as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout & waiting for the Church Support user to automatically login).
 
-The 3rd option is an option I haven't figured out yet. It is designed to use setupprep.exe to install a Windows Image that already has the current updates or at least close to the current Windows version.
+The seccond option available (Automated DiskPart) is for mass wiping Surplus PC's.
 
-The 4th option uses the AutoPilot Hash file program to upload the computer's info csv to the Intune PC management/enrollment system. This option requires an internet connection for the Client PC.
+The 3rd option allows you to go through the Windows 11 setup settings manually if you need to.
+
+The 4th option is well _Your choice_! Yes that's right!, if you know a little bit of cmd scripting(or know how to do your research), you can add whatever & however many custom options you want to this file & it will appear with the rest of the others😉.
 
 
-----------------------------------------Closure--------------------------------------------------------
+## ----------------------------------------Closure-------------------------------------------------------- ##
 
 Thanks for getting through all of that, if you have any questions I guess just submit stuff on the Issues Page.
 
-If you're really really tech savy and know what I'm doing in this program & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & share your creation ;]  .
+If you're really really really tech savy(your 2nd language just so happens to be cmd lingo) and you know what I'm doing(or trying to do😁) in this program & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & maybe share your creation ;]  .
 
 Enjoy!!!
