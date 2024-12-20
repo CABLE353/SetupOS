@@ -34,59 +34,59 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ------------------------------------------Meeting The Files & Folders-------------------------------------------
 
-setupos.bat: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive.
+```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive.
 
-jobOps.bat: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's "Win11" folder. You can also add more jobs to the job list I have!
+```jobOps.bat```: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's "Win11" folder. You can also add more jobs to the job list I have!
 
-test2.bat: I'm just a bridge between jobOps.bat & test2.vbs. I'm also located on the Host PC "Win11" folder.
+```test2.bat```: I'm just a bridge between jobOps.bat & test2.vbs. I'm also located on the Host PC "Win11" folder.
 
-test2.vbs: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in jobOps.bat. I'm also located in the "Win11" folder.
+```test2.vbs```: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in jobOps.bat. I'm also located in the "Win11" folder.
 
-vacuum.bat: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the "Win11" folder too!
+```vacuum.bat```: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the "Win11" folder too!
 
-AutoPilot Hash Program Folder: I get the bios system info from new PC's in a csv file to put the new PC in the Auto Pilot System; I'm in the Win11 Folder as well!
+```AutoPilot Hash Program Folder```: I get the bios system info from new PC's in a csv file to put the new PC in the Auto Pilot System; I'm in the Win11 Folder as well!
 
-SetupOSPackages.zip: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me.
+```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me.
 
-Enviroset.bat: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
+```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
 
 
 -------------------------------------------Setup Instructions---------------------------------
 
-Step 1:   Start your host computer with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
+**Step 1:**   Start your host computer with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
 
-Step 2:   Copy ALL USB installation media contents to your newly created folder "Win11", including the latest provisioning tool & the .
+**Step 2: **  Copy ALL USB installation media contents to your newly created folder "Win11", including the latest provisioning tool & the .
 
-Step 3a:   Share this folder & its contents to the Everyone group in the network share folder properties.
+**Step 3a:**   Share this folder & its contents to the Everyone group in the network share folder properties.
 
-Step 3b:  Go to Settings>Advanced Network Settings>Advanced Sharing Settings, and switch off the "Password Protection" option underneath the "All Networks" dropdown. The communication with this setting is a little weird, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why this is, but it is).
+**Step 3b**:  Go to Settings>Advanced Network Settings>Advanced Sharing Settings, and switch off the "Password Protection" option underneath the "All Networks" dropdown. The communication with this setting is a little weird, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why this is, but it is).
 
-Step 4:   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK!
+**Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK!
 
-Step 5:   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches to get more Ethernet ports).
+**Step 5:**   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches to get more Ethernet ports).
 
-Step 6:   Copy the file "setupos.bat" from this folder to the installation media USB drive.
+**Step 6:**   Copy the file "setupos.bat" from this folder to the installation media USB drive.
 
-Step 7:   Copy the "jobOps.bat", "test2.vbs", "test2.bat", "vacuum.bat" files, along with all other files & folders in the "SetupOS Package" folder, to your newly created folder "Win11".
+**Step 7:**   Copy the "jobOps.bat", "test2.vbs", "test2.bat", "vacuum.bat" files, along with all other files & folders in the "SetupOS Package" folder, to your newly created folder "Win11".
 
-Step 8:   Find the name of your Host Computer & note its credentials. Open the "setupos.bat" file in notepad and go to the lines that have the "net use" command in them. Put your Host PC name as shown in the file. Replace the "username password" with your Host PC's username & password with a space in-between without quotes; "username password"(some of the "net use" lines don't have the username & password integration because some PC's won't store credentials due to policies set, & depending on which department the Client PC came from, so those options are there so you can enter them in manually), the username & password of your machine should be put in exactly like it is on your Host PC because those fields are CASE SENSITIVE. Be sure to save the changes before exiting.
+**Step 8:**   Find the name of your Host Computer & note its credentials. Open the "setupos.bat" file in notepad and go to the lines that have the "net use" command in them. Put your Host PC name as shown in the file. Replace the "username password" with your Host PC's username & password with a space in-between without quotes; "username password"(some of the "net use" lines don't have the username & password integration because some PC's won't store credentials due to policies set, & depending on which department the Client PC came from, so those options are there so you can enter them in manually), the username & password of your machine should be put in exactly like it is on your Host PC because those fields are CASE SENSITIVE. Be sure to save the changes before exiting.
 
 Congrats!! Your setup should now be ready to wheel-and-deal the Installation of Windows 11 & run other tools for Surplus PC's!
 
 
 ------------------------------------------Using The Setup-------------------------------------------
 
-Step 1:  Connect as many Client PC's as you have Ethernet cables & chargers.
-Step 2:  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
-Step 3:  Choose Advanced Options>Troubleshoot>Command Prompt.
-Step 4:  Connect the USB Drive with the "setupos.bat" file to one of the Client PC's.
-Step 5:  This part can be a little tricky...My drive mounts to either letters "D", or "E". If your flash drive doesn't mount to either of these, then type 'notepad' and hit enter to open notepad, then press Ctrl+O to open a headless Files Explorer to find out where your drive is, then enter the letter that the USB Drive is mounted to. Type your drive letter like this(without quotes); "D:" and hit enter. Now that you're in the USB Drive, type "setupos" without quotes & hit enter to start the first batch file.
+**Step 1:**  Connect as many Client PC's as you have Ethernet cables & chargers.
+**Step 2:**  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
+**Step 3:**  Choose Advanced Options>Troubleshoot>Command Prompt.
+**Step 4:**  Connect the USB Drive with the "setupos.bat" file to one of the Client PC's.
+**Step 5:**  This part can be a little tricky...My drive mounts to either letters "D", or "E". If your flash drive doesn't mount to either of these, then type 'notepad' and hit enter to open notepad, then press Ctrl+O to open a headless Files Explorer to find out where your drive is, then enter the letter that the USB Drive is mounted to. Type your drive letter like this(without quotes); "D:" and hit enter. Now that you're in the USB Drive, type "setupos" without quotes & hit enter to start the first batch file.
 
-Step 6:  The setupos.bat file will first initialize the network card in the Client PC, after it does, it will then run an ipconfig command to check if the Client PC sees the Host PC. If no output is returned, then the cable has not been initialized or found, & you'll need to check every connection(if you have a switch make sure to check the power cord) to make sure that the Host PC & the Client PC are connected, then the setupos.bat file needs to be re-run(Press Ctrl+C to terminate the process, then re-run the program from Step 5), if a "Media disconnected" is returned it means that the Client PC Network Card hasn't found the Host PC and this will also need a re-run of the setupos.bat program until it does. If the ipconfig returns an ipv4 address(usually starts with "255.") then the Client PC has found the Host PC and you can continue the program by pressing any key.
+**Step 6:**  The setupos.bat file will first initialize the network card in the Client PC, after it does, it will then run an ipconfig command to check if the Client PC sees the Host PC. If no output is returned, then the cable has not been initialized or found, & you'll need to check every connection(if you have a switch make sure to check the power cord) to make sure that the Host PC & the Client PC are connected, then the setupos.bat file needs to be re-run(Press Ctrl+C to terminate the process, then re-run the program from Step 5), if a "Media disconnected" is returned it means that the Client PC Network Card hasn't found the Host PC and this will also need a re-run of the setupos.bat program until it does. If the ipconfig returns an ipv4 address(usually starts with "255.") then the Client PC has found the Host PC and you can continue the program by pressing any key.
 
-Step 7:  You've made it to the DLA Menu(confetti & popper noises)!!!! The DLA Menu is, & stands for, Drive Letter Assosiations. Each Client PC will need to mount the Host PC "Win11" folder to a drive letter. Each of the drive letters cannot be chosen twice during each batch of Client PC's. There are some options with credential integration and some without. This is explained above in the Setup Instructions Step 8.
+**Step 7:**  You've made it to the DLA Menu(confetti & popper noises)!!!! The DLA Menu is, & stands for, Drive Letter Assosiations. Each Client PC will need to mount the Host PC "Win11" folder to a drive letter. Each of the drive letters cannot be chosen twice during each batch of Client PC's. There are some options with credential integration and some without. This is explained above in the Setup Instructions Step 8.
 
-Step 8:  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the list (depending on your situation). When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program. If that doesn't work restart the process from Using The Setup Step 2 & make sure everything's connected correctly & securely.
+**Step 8:**  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the list (depending on your situation). When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program. If that doesn't work restart the process from Using The Setup Step 2 & make sure everything's connected correctly & securely.
 
 
 ----------------------------------------Extra Things To Note------------------------------------------
