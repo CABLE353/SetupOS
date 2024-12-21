@@ -109,7 +109,7 @@ The 4th option is well _Your choice_! Yes that's right!, if you know a little bi
 
 Thanks for getting through all of that, if you have any questions I guess just submit stuff on the Issues Page. I guess one could say that this entire project is basically scripts calling other scripts to do scripty things that you decide to script😂.
 
-If you're really really really tech savy(your 2nd language just so happens to be cmd lingo) and you know what I'm doing(or trying to do😁) in this program, & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & maybe hopefully possibly share your creation by forking this one out or whatever it's called 😉.
+If you're really really really tech savy(your 2nd language just so happens to be cmd lingo) and you know what I'm doing(or trying to do😁) in this program, & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & maybe hopefully possibly share your creation by forking SetupOS 😉.
 
 Also please understand that what _**YOU**_ do with this tool is **_YOUR_** responsibility. I can't be held liable for **_ANY_** misuse or casual & unsecure operations or configurations of this tool.
 
