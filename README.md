@@ -15,7 +15,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 
 
-## -----------------------------------------Tools You'll Need-------------------------------------------- ##
+## Tools You'll Need ##
 
 	A host computer(a computer that will host all of the installation media files & folders offline).
 
@@ -37,7 +37,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 
 
-## ---------------------------------Meeting The Files & Folders---------------------------------------- ##
+## Meeting The Files & Folders ##
 
 ```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive.
 
@@ -56,7 +56,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
 
 
-## -------------------------------------------Setup Instructions--------------------------------- ##
+## Setup Instructions ##
 
 **Step 1:**   Start your host computer with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
 
@@ -79,7 +79,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 Congrats!! Your setup should now be ready to wheel-and-deal the Installation of Windows 11 & run other tools for Surplus PC's!
 
 
-## -----------------------------------------Using The Setup------------------------------------------- ##
+## Using The Setup ##
 
 **Step 1:**  Connect as many Client PC's as you have Ethernet cables & chargers.
 **Step 2:**  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
@@ -94,7 +94,7 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 **Step 8:**  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the list (depending on your situation). When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program. If that doesn't work restart the process from Using The Setup Step 2 & make sure everything's connected correctly & securely.
 
 
-## ----------------------------------------Extra Things To Note---------------------------------------- ##
+## Extra Things To Note ##
 
 The Windows 11 Automated Setup keystrokes every mouse click for you. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY TO STOP IT as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout & waiting for the Church Support user to automatically login).
 
@@ -105,11 +105,13 @@ The 3rd option allows you to go through the Windows 11 setup settings manually i
 The 4th option is well _Your choice_! Yes that's right!, if you know a little bit of cmd scripting(or know how to do your research), you can add whatever & however many custom options you want to this file & it will appear with the rest of the others😉.
 
 
-## ----------------------------------------Closure---------------------------------------------- ##
+## Closure ##
 
 Thanks for getting through all of that, if you have any questions I guess just submit stuff on the Issues Page. I guess one could say that this entire project is basically scripts calling other scripts to do scripty things that you decide to script😂.
 
-If you're really really really tech savy(your 2nd language just so happens to be cmd lingo) and you know what I'm doing(or trying to do😁) in this program & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & maybe share your creation ;]  .
+If you're really really really tech savy(your 2nd language just so happens to be cmd lingo) and you know what I'm doing(or trying to do😁) in this program, & want to help make this process better & more stable either just for you or for everyone, then feel free to just change what you want in your environment, & maybe hopefully possibly share your creation by forking this one out or whatever it's called 😉.
+
+Also please understand that what _**YOU**_ do with this tool is **_YOUR_** responsibility. I can't be held liable for **_ANY_** misuse or casual & unsecure operations or configurations of this tool.
 
 Please be sure to leave feedback! I would love to know if anybody likes it.
 
