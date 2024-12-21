@@ -116,9 +116,13 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 ## Using The Setup ##
 
 **Step 1:**  Connect as many Client PC's as you have Ethernet cables & chargers.
+
 **Step 2:**  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
+
 **Step 3:**  Choose Advanced Options>Troubleshoot>Command Prompt.
+
 **Step 4:**  Connect the USB Drive with the "setupos.bat" file to one of the Client PC's.
+
 **Step 5:**  This part can be a little tricky...My drive mounts to either letters "D", or "E". If your flash drive doesn't mount to either of these, then type 'notepad' and hit enter to open notepad, then press Ctrl+O to open a headless Files Explorer to find out where your drive is, then enter the letter that the USB Drive is mounted to. Type your drive letter like this(without quotes); "D:" and hit enter. Now that you're in the USB Drive, type "setupos" without quotes & hit enter to start the first batch file.
 
 **Step 6:**  The setupos.bat file will first initialize the network card in the Client PC, after it does, it will then run an ipconfig command to check if the Client PC sees the Host PC. If no output is returned, then the cable has not been initialized or found, & you'll need to check every connection(if you have a switch make sure to check the power cord) to make sure that the Host PC & the Client PC are connected, then the setupos.bat file needs to be re-run(Press Ctrl+C to terminate the process, then re-run the program from Step 5), if a "Media disconnected" is returned it means that the Client PC Network Card hasn't found the Host PC and this will also need a re-run of the setupos.bat program until it does. If the ipconfig returns an ipv4 address(usually starts with "255.") then the Client PC has found the Host PC and you can continue the program by pressing any key.
