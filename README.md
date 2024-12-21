@@ -47,25 +47,25 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ## Meeting The Files & Folders ##
 
-```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive inside the boot.wim image file.
+```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive inside the ```boot.wim``` image file.
 
-```jobOps.bat```: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's "Win11" folder. You can also add more jobs to the job list I have!
+```jobOps.bat```: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's ```Win11``` folder. You can also add more jobs to the job list I have!
 
-```vbsbridge.bat```: I'm just a bridge between jobOps.bat & test2.vbs. I'm also located on the Host PC "Win11" folder.
+```vbsbridge.bat```: I'm just a bridge between ```jobOps.bat``` & test2.vbs. I'm also located on the Host PC "Win11" folder.
 
-```autosetup.vbs```: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in jobOps.bat. I'm also located in the "Win11" folder.
+```autosetup.vbs```: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in ```jobOps.bat```. I'm also located in the ```Win11``` folder.
 
-```vacuum.bat```: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the "Win11" folder too!
+```vacuum.bat```: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the ```Win11``` folder too!
 
 ```Win11 Folder```: I store the files on the Host PC in a network share accessible via the net use command inside the ```SetupOS.bat``` file!
 
-```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me.
+```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me. If you're using ```enviroset.bat to set up your environment, keep me in the same directory as enviroset.bat.
 
-```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
+```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kind of a Package deal! If you want to see how I setup the environment for you, feel free to open me up in notepad to get a more detailed view of what I do.
 
 ```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call setupOS.bat to run at boot; & I'm located inside the boot.wim image on the USB drive as well.
 
-```usb.txt```: I'm a variable that tells enviroset.bat where the USB Drive is.
+```usb.txt```: I'm a variable that tells ```enviroset.bat``` where the USB Drive is.
 
 ```NAMEOFYOURPC.txt```: I'm a variable that gets the name of your Host PC & uses that name when the Client attempts to connect to the Host. I'm in the Windows\System32 directory of the boot.wim image file.
 
