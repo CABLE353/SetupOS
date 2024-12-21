@@ -37,7 +37,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 	The files in this SetupOS Package folder.
 
-	Either DISM Gui 4.0 or NTLite(both of which I do _**not**_ own).
+	Either DISM Gui 4.0 or NTLite if you decide to take the manual approach to setting up your environment(both of which I do _**not**_ own).
  
  	Patience.
 
