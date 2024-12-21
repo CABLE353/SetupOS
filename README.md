@@ -33,7 +33,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 	Patience.
 
-	And some PC's needing a fresh install of Windows 11.
+	And some PC's needing a fresh install of Windows 10/11.
 
 
 
@@ -49,22 +49,22 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ```vacuum.bat```: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the "Win11" folder too!
 
-```AutoPilot Hash Program Folder```: I get the bios system info from new PC's in a csv file to put the new PC in the Auto Pilot System; I'm in the Win11 Folder as well!
+```Win11 Folder```: I store the files on the Host PC in a network share accessible via the net use command inside the ```SetupOS.bat``` file!
 
 ```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me.
 
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
 
 
-## Setup Instructions ##
+## Manual Setup Instructions ##
 
-**Step 1:**   Start your host computer with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
+**Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
 
-**Step 2: **  Copy ALL USB installation media contents to your newly created folder "Win11", including the latest provisioning tool & the .
+**Step 2:**  Copy ALL USB installation media contents to your newly created folder "Win11".
 
 **Step 3a:**   Share this folder & its contents to the Everyone group in the network share folder properties.
 
-**Step 3b**:  Go to Settings>Advanced Network Settings>Advanced Sharing Settings, and switch off the "Password Protection" option underneath the "All Networks" dropdown. The communication with this setting is a little weird, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why this is, but it is).
+**Step 3b**:  Go to ```Settings>Advanced Network Settings>Advanced Sharing Settings```, and switch off the "Password Protection" option underneath the "All Networks" dropdown since Windows 11 at the time of writting is still going through some design changes away from the traditional tools & settings by slowly moving all or most of the settings out of Control Panel, & either putting them into the Settings Applet or turning them into their own Applets. The communication with this setting is a little weird with the Network Share side of things, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why or how this is, but it is🤷‍♂️).
 
 **Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK!
 
