@@ -5,11 +5,17 @@
 
 Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler & primitive reverse pixie booting without the PXE"😁(trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly(& help to hopefully better compete with the mac DFU deployment; you're welcome ms🙄).
 
-With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it(using the Installation Media provided by either ms itself or your entity). The SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. A series of checks will then be run when the script first starts. The first one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way. The seccond check initializes the network card a few times with the default drivers included with WindowsPE, & the 3rd & last check will display output of the ```ipconfig``` command. A pause will be executed afterwards to give users a chance to view the output of the ```ipconfig``` command to make sure that the Client can see the Host(important). Then it will ```cls``` & finally load into the DLA menu explained more below.
+With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it(using the Installation Media provided by either ms itself or your entity). The SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. When the script starts it will run a few commands to essentially "point" the Client PC to the Host PC.
 
-I Also made sure that in each ```.bat``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to get what you want/need. I'm a bit of a noobe, so please be patient. This is my first GitHub Release or whatever it's called. This all took me a few months to update & grind out but I finally got a working concept, & it's something cool that I wanted to share to whomever wants to test it & maybe make better(less clunky).
+The first one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way.
 
-If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known HERE that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each device. Plan for alot of network traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable.
+The second initializes the network card a few times using the ```wpeutil InitializeNetwork \NoWait``` command. The ```\NoWait``` flag is set to initialize the card without the painfully long wait of the command also checking for an internet connection by default.
+
+The 3rd & final command will display the output of the ```ipconfig``` command, & a ```pause``` will be executed afterwards to give users a chance to view the output of the ```ipconfig``` command to make sure that the Client can see the Host(important) before it continues. After any key is pressed, then it will ```cls``` & finally load into the DLA menu explained more below.
+
+I Also made sure that in each ```.bat``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does before you use it. I'm a bit of a noobe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever wants to test it & maybe make better(less clunky).
+
+If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known HERE that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
 
 
 
@@ -43,9 +49,9 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ```jobOps.bat```: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's "Win11" folder. You can also add more jobs to the job list I have!
 
-```test2.bat```: I'm just a bridge between jobOps.bat & test2.vbs. I'm also located on the Host PC "Win11" folder.
+```vbsbridge.bat```: I'm just a bridge between jobOps.bat & test2.vbs. I'm also located on the Host PC "Win11" folder.
 
-```test2.vbs```: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in jobOps.bat. I'm also located in the "Win11" folder.
+```autosetup.vbs```: I run the setup.exe file with a little flare...I do every keystroke for you! The last time you should be touching anything is when you choose the Automated Setup option in jobOps.bat. I'm also located in the "Win11" folder.
 
 ```vacuum.bat```: I'm the one that runs diskpart for your Surplus Machine wiping needs. I live in the "Win11" folder too!
 
@@ -54,6 +60,8 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 ```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me.
 
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
+
+```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call setupOS.bat to run at boot.
 
 
 ## Manual Setup Instructions ##
