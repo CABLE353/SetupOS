@@ -140,7 +140,7 @@ The 2nd option available (Automated DiskPart) is for mass wiping any PC's that y
 
 The 3rd option allows you to go through the Windows 11 setup settings manually if you need to.
 
-The 4th option is well _Your choice_! Yes that's right!, if you know a little bit of cmd scripting(or know how to do your research), you can add whatever & however many custom options you want to this file & it will appear with the rest of the others😉.
+The 4th option is well _Your choice_! Yes that's right! If you know a little bit of cmd scripting(or know how to do your research), you can add whatever & however many custom options you want to this file & it will appear with the rest of the others😉.
 
 
 ## Closure ##
