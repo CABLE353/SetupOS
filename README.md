@@ -7,23 +7,23 @@ Hello! CABLE53 here. These are the instructions & some quick details on how to u
 
 With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it(using the Installation Media provided by either ms itself or your entity). The SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. When the script starts it will run a few commands to essentially "point" the Client PC to the Host PC.
 
-The first one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way.
+The 1st one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way.
 
-The second initializes the network card a few times using the ```wpeutil InitializeNetwork \NoWait``` command. The ```\NoWait``` flag is set to initialize the card without the painfully long wait of the command also checking for an internet connection by default.
+The 2nd initializes the network card a few times using the ```wpeutil InitializeNetwork \NoWait``` command. The ```\NoWait``` flag is set to initialize the card without the painfully long wait of the command also checking for an internet connection by default.
 
 The 3rd & final command will display the output of the ```ipconfig``` command, & a ```pause``` will be executed afterwards to give users a chance to view the output of the ```ipconfig``` command to make sure that the Client can see the Host(important) before it continues. After any key is pressed, then it will ```cls``` & finally load into the DLA menu explained more below.
 
-I Also made sure that in each ```.bat``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does before you use it. I'm a bit of a noobe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever wants to test it & maybe make better(less clunky).
+I Also made sure that in each ```.bat``` or ```.vbs``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does before you use it. I'm a bit of a noobe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept; albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever wants to test it or could use it, & maybe make better(less clunky).
 
-If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known HERE that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
-
-
+If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known _**HERE**_ that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
 
 
+
+# Getting Started #
 
 ## Tools You'll Need ##
 
-	A host computer(a computer that will host all of the installation media files & folders offline).
+	A Host PC _running Windows 10 or later_(a computer that will host all of the installation media files & folders offline).
 
 	A USB Drive that _You Have_ that's used for booting installation media(It has to be OS installer files you own of course).
 	
@@ -37,7 +37,9 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 	The files in this SetupOS Package folder.
 
-	Patience.
+	Either DISM Gui 4.0 or NTLite(both of which I do _**not**_ own).
+ 
+ 	Patience.
 
 	And some PC's needing a fresh install of Windows 10/11.
 
@@ -45,7 +47,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ## Meeting The Files & Folders ##
 
-```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive.
+```setupos.bat```: I help point the Client PC's in the right direction. I'm located on the USB Installation Media drive inside the boot.wim image file.
 
 ```jobOps.bat```: I display a list of many job Options that you may need, from the Automated Windows 11 Setup to Wiping Surplus Machines. I'm located on the Host PC's "Win11" folder. You can also add more jobs to the job list I have!
 
@@ -61,12 +63,20 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kindof a Package deal!
 
-```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call setupOS.bat to run at boot.
+```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call setupOS.bat to run at boot; & I'm located inside the boot.wim image on the USB drive as well.
+
+```usb.txt```: I'm a variable that tells enviroset.bat where the USB Drive is.
+
+```NAMEOFYOURPC.txt```: I'm a variable that gets the name of your Host PC & uses that name when the Client attempts to connect to the Host. I'm in the Windows\System32 directory of the boot.wim image file.
+
+```yourUsername.txt```: I'm a variable too, I get stored inside the Windows\System32 directory of the boot.wim image file. I store your Host PC's username, when the Client connects to the Host to access the Win11 folder & its contents.
+
+```yourPassword.txt```: I'm the variable that stores your Host PC's password, & help setupOS.bat succefully access the Win11 folder on the Host PC. I live in the Windows\System32 directory of the boot.wim image file as well.
 
 
 ## Manual Setup Instructions ##
 
-**Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in the \Users\YourUsernameGoesHere\ directory of the C drive(System Drive).
+**Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in your user folder on the C drive(System Drive).
 
 **Step 2:**  Copy ALL USB installation media contents to your newly created folder "Win11".
 
@@ -76,15 +86,31 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 **Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK!
 
-**Step 5:**   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches to get more Ethernet ports).
+**Step 5:**   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches or aquire a giant switch to get more Ethernet ports).
 
-**Step 6:**   Copy the file "setupos.bat" from this folder to the installation media USB drive.
+**Setp 6a:**   To run SetupOS upon booting the USB drive, mount the boot.wim file in either DISM GUI 4.0 or NTLite. If you're using DISM GUI 4.0, then before you mount the image, put the index number dropdown menu to 2, & then mount it. For NTLite, 
 
-**Step 7:**   Copy the "jobOps.bat", "test2.vbs", "test2.bat", "vacuum.bat" files, along with all other files & folders in the "SetupOS Package" folder, to your newly created folder "Win11".
+**Step 6c:**   Create the following files using the network name, local username, & password of the Host PC:
+```NAMEOFYOURPC.txt```
+```yourUsername.txt```
+```yourPassword.txt```
 
-**Step 8:**   Find the name of your Host Computer & note its credentials. Open the "setupos.bat" file in notepad and go to the lines that have the "net use" command in them. Put your Host PC name as shown in the file. Replace the "username password" with your Host PC's username & password with a space in-between without quotes; "username password"(some of the "net use" lines don't have the username & password integration because some PC's won't store credentials due to policies set, & depending on which department the Client PC came from, so those options are there so you can enter them in manually), the username & password of your machine should be put in exactly like it is on your Host PC because those fields are CASE SENSITIVE. Be sure to save the changes before exiting.
+**Step 6c:**   Copy these files from the SetupOSPackage folder to the mounted folder directory of the ```boot.wim``` drive in ```Windows\System32```, then unmount & commit the boot.wim image in either DISM GUI 4.0 or NTLite:
+```setupos.bat```
+```windpeshl.ini```
+```NAMEOFYOURPC.txt```
+```yourUsername.txt```
+```yourPassword.txt```
 
-Congrats!! Your setup should now be ready to wheel-and-deal the Installation of Windows 11 & run other tools for Surplus PC's!
+**Step 7:**   Copy these files into the "SetupOS Package" folder, to your newly created folder "Win11": 
+```jobOps.bat```
+```autosetup.vbs```
+```vbsbridge.bat```
+```vacuum.bat``` 
+
+**Notice:**   Some of the "net use" lines inside the setupOS.bat file don't have the username & password integration because some PC's won't store credentials due to policies that are set depending on the configuration of the Client PC that you're putting Windows on, so those options are there so you can enter them in manually if needs be. The fields are _**CASE SENSITIVE**_.
+
+Congrats!! Your setup should now be ready to wheel-and-deal the Installation of Windows 11 & run other custom scripts, programs, & tools that you'll need to execute!
 
 
 ## Using The Setup ##
@@ -104,9 +130,9 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 
 ## Extra Things To Note ##
 
-The Windows 11 Automated Setup keystrokes every mouse click for you. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY TO STOP IT as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout & waiting for the Church Support user to automatically login).
+The Windows 11 Automated Setup keystrokes every mouse click for you & **_deletes the previous OS_** to do a clean install. If you don't want to do a clean install, then don't run the Windows 11 Automated Setup. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY to stop it(like ctrl+C works for .bat files) as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots to the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout, picking a network, & checking for updates).
 
-The seccond option available (Automated DiskPart) is for mass wiping Surplus PC's.
+The 2nd option available (Automated DiskPart) is for mass wiping any PC's that you might have to do for whatever reason.
 
 The 3rd option allows you to go through the Windows 11 setup settings manually if you need to.
 
