@@ -3,9 +3,9 @@
 
 
 
-Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler & primitive reverse pixie booting without the PXE"😁(trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly(& help to hopefully better compete with the mac DFU deployment; you're welcome ms🙄).
+Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler & primitive reverse pixie booting without the PXE"😁(trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly(& help to hopefully better compete with the mac DFU deployment; you're welcome ms🙄). SetupOS was originally built & tested with Windows 11, but since Windows 10 is similar, I'm also including that OS as supported probably, but its behaviour hasn't been tested.
 
-With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it(using the Installation Media provided by either ms itself or your entity). The SetupOS script(Via the wpeshl.ini file in the Installation Media) is able to load as WindowsPE boots up. When the script starts it will run a few commands to essentially "point" the Client PC to the Host PC.
+With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands & revive this functionality in a different, but simple primitive way. It all runs natively inside the WindowsPE environment, offline(if you want it to), & you can boot right into it(using the Installation Media provided by either ms itself or your entity). The SetupOS script(Via the ```wpeshl.ini``` file in the Installation Media) is able to load as WindowsPE boots up. When the script starts it will run a few commands to essentially "point" the Client PC to the Host PC.
 
 The 1st one finds what the USB Drive mounted to, & runs the setup.exe from the USB drive in case you need to do it that way.
 
@@ -59,26 +59,26 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ```Win11 Folder```: I store the files on the Host PC in a network share accessible via the net use command inside the ```SetupOS.bat``` file!
 
-```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me. If you're using ```enviroset.bat to set up your environment, keep me in the same directory as enviroset.bat.
+```SetupOSPackages.zip```: I carry all of the files you'll meet from this github page to your Downloads folder; or wherever you choose to put me. If you're using ```enviroset.bat``` to set up your environment, keep me in the same directory as ```enviroset.bat```.
 
-```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the SetupOSPackages.zip file as we're kind of a Package deal! If you want to see how I setup the environment for you, feel free to open me up in notepad to get a more detailed view of what I do.
+```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the ```SetupOSPackages.zip``` file as we're kind of a Package deal! If you want to see how I setup the environment for you, feel free to open me up in notepad to get a more detailed view of what I do.
 
-```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call setupOS.bat to run at boot; & I'm located inside the boot.wim image on the USB drive as well.
+```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call ```setupOS.bat``` to run at boot; & I'm located inside the ```boot.wim``` image on the USB drive as well.
 
 ```usb.txt```: I'm a variable that tells ```enviroset.bat``` where the USB Drive is.
 
-```NAMEOFYOURPC.txt```: I'm a variable that gets the name of your Host PC & uses that name when the Client attempts to connect to the Host. I'm in the Windows\System32 directory of the boot.wim image file.
+```NAMEOFYOURPC.txt```: I'm a variable that gets the name of your Host PC & uses that name when the Client attempts to connect to the Host. I'm in the Windows\System32 directory of the ```boot.wim``` image file.
 
-```yourUsername.txt```: I'm a variable too, I get stored inside the Windows\System32 directory of the boot.wim image file. I store your Host PC's username, when the Client connects to the Host to access the Win11 folder & its contents.
+```yourUsername.txt```: I'm a variable too, I get stored inside the Windows\System32 directory of the ```boot.wim``` image file. I store your Host PC's username, when the Client connects to the Host to access the ```Win11``` folder & its contents.
 
-```yourPassword.txt```: I'm the variable that stores your Host PC's password, & help setupOS.bat succefully access the Win11 folder on the Host PC. I live in the Windows\System32 directory of the boot.wim image file as well.
+```yourPassword.txt```: I'm the variable that stores your Host PC's password, & help ```setupOS.bat``` succefully access the ```Win11``` folder on the Host PC. I live in the Windows\System32 directory of the ```boot.wim``` image file as well.
 
 
 ## Manual Setup Instructions ##
 
-**Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named "Win11", in your user folder on the C drive(System Drive).
+**Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named ```Win11```, in your user folder on the C drive(System Drive).
 
-**Step 2:**  Copy ALL USB installation media contents to your newly created folder "Win11".
+**Step 2:**  Copy ALL USB installation media contents to your newly created folder ```Win11```.
 
 **Step 3a:**   Share this folder & its contents to the Everyone group in the network share folder properties.
 
@@ -97,7 +97,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 **Step 6c:**   Copy these files from the SetupOSPackage folder to the mounted folder directory of the ```boot.wim``` drive in ```Windows\System32```, then unmount & commit the boot.wim image in either DISM GUI 4.0 or NTLite:
 ```setupos.bat```
-```windpeshl.ini```
+```winpeshl.ini``` (If you already have a ```winpeshl.ini``` file in your Install Media, then just copy & paste the contents of this file into the one already there)
 ```NAMEOFYOURPC.txt```
 ```yourUsername.txt```
 ```yourPassword.txt```
@@ -117,19 +117,17 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 
 **Step 1:**  Connect as many Client PC's as you have Ethernet cables & chargers.
 
-**Step 2:**  Boot each Client PC to the Automatic Repair Menu/Advanced Startup Menu(Shift + Click Restart, or hard shutoff PC during boot repeatedly until it "Prepares Automatic Repair").
+**Step 2:**  Boot each Client PC from the USB Installation Media.
 
-**Step 3:**  Choose Advanced Options>Troubleshoot>Command Prompt.
+**Step 3:**  If you plan to use the native functions of the installation media, simply minimize the SetupOS window, & carry on normally.
 
-**Step 4:**  Connect the USB Drive with the "setupos.bat" file to one of the Client PC's.
+**Step 6:**  The ```setupOS.bat``` file will first initialize the network card in the Client PC, after it does, it will then run an ```ipconfig``` command to check if the Client PC sees the Host PC. If no output is returned, then the cable has not been initialized or found, & you'll need to check every connection(if you have a switch make sure to check the power cord) to make sure that the Host PC & the Client PC are connected, then the ```setupOS.bat``` file needs to be re-run(Press r to re-run the program from Step 5), if a "Media disconnected" is returned it means that the Client PC Network Card hasn't found the Host PC and this will also need a re-run of the ```setupOS.bat``` program until it does. If the ```ipconfig``` returns an ipv4 address(usually starts with "255.") then the Client PC has found the Host PC and you can continue the program by pressing c. Entering nothing into this prompt will terminate the script entirely.
 
-**Step 5:**  This part can be a little tricky...My drive mounts to either letters "D", or "E". If your flash drive doesn't mount to either of these, then type 'notepad' and hit enter to open notepad, then press Ctrl+O to open a headless Files Explorer to find out where your drive is, then enter the letter that the USB Drive is mounted to. Type your drive letter like this(without quotes); "D:" and hit enter. Now that you're in the USB Drive, type "setupos" without quotes & hit enter to start the first batch file.
+**Step 7:**  You've made it to the DLA Menu(confetti & popper noises)!!!! The DLA Menu is, & stands for, Drive Letter Assosiation. Each Client PC will need to mount the Host PC "Win11" folder to a drive letter. Each of the drive letters cannot be chosen twice during the installation process. There are some options with credential integration and some without. This is explained above in the Setup Instructions Step 8.
 
-**Step 6:**  The setupos.bat file will first initialize the network card in the Client PC, after it does, it will then run an ipconfig command to check if the Client PC sees the Host PC. If no output is returned, then the cable has not been initialized or found, & you'll need to check every connection(if you have a switch make sure to check the power cord) to make sure that the Host PC & the Client PC are connected, then the setupos.bat file needs to be re-run(Press Ctrl+C to terminate the process, then re-run the program from Step 5), if a "Media disconnected" is returned it means that the Client PC Network Card hasn't found the Host PC and this will also need a re-run of the setupos.bat program until it does. If the ipconfig returns an ipv4 address(usually starts with "255.") then the Client PC has found the Host PC and you can continue the program by pressing any key.
+**Step 8:**  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the ```jobOps.bat``` menu. When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program & test the connection. If that doesn't work, check every connection that hooks up the Host PC & Client PC together.
 
-**Step 7:**  You've made it to the DLA Menu(confetti & popper noises)!!!! The DLA Menu is, & stands for, Drive Letter Assosiations. Each Client PC will need to mount the Host PC "Win11" folder to a drive letter. Each of the drive letters cannot be chosen twice during each batch of Client PC's. There are some options with credential integration and some without. This is explained above in the Setup Instructions Step 8.
-
-**Step 8:**  After you've chosen one of the drive letter mounts, you may now choose from the jobs provided in the list (depending on your situation). When this menu appears, you can yank the USB drive out & start on the next Client PC. If a window pops up and closes with no menu appearing, check the connection between the Client PC, Switch, Host PC, & the power cable connection to your Switch, then just choose the option again. If no menu appears restart the setupOS program. If that doesn't work restart the process from Using The Setup Step 2 & make sure everything's connected correctly & securely.
+**Step 9:**  Now you can choose a job on each Client PC & boom! You've successfully started your 1st batch using SetupOS!
 
 
 ## Extra Things To Note ##
