@@ -1,1 +1,0 @@
-autosetup.vbs
