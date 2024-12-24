@@ -132,7 +132,7 @@ Congrats!! Your setup should now be ready to wheel-and-deal the Installation of 
 
 ## Extra Things To Note ##
 
-The Windows 11 Automated Setup keystrokes every mouse click for you & **_deletes the previous OS_** to do a clean install. If you don't want to do a clean install, then don't run the Windows 11 Automated Setup. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY to stop it(like ctrl+C works for .bat files) as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots to the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout, picking a network, & checking for updates).
+The Windows 11 Automated Setup keystrokes every mouse click for you & using diskpart, **_deletes the previous OS_** to do a clean install. If you don't want to do a clean install, then don't run the Windows 11 Automated Setup. Please note that if anything is touched during this part of the process, it WILL put those keystrokes where you don't want them and there is NO WAY to stop it(like ctrl+C works for .bat files) as far as my knowledge takes me. You don't have to touch the Client PC again _until_ it boots to the OOBE(Out Of Box Experience) setup options _after_ Windows installs(like keyboard layout, picking a network, & checking for updates).
 
 The 2nd option available (Automated DiskPart) is for mass wiping any PC's that you might have to do for whatever reason.
 
