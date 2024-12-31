@@ -84,7 +84,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 **Step 3b**:  Go to ```Settings>Advanced Network Settings>Advanced Sharing Settings```, and switch off the "Password Protection" option underneath the "All Networks" dropdown since Windows 11 at the time of writting is still going through some design changes away from the traditional tools & settings by slowly moving all or most of the settings out of Control Panel, & either putting them into the Settings Applet or turning them into their own Applets. The communication with this setting is a little weird with the Network Share side of things, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why or how this is, but it is🤷‍♂️).
 
-**Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK!
+**Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK UNLESS YOU'VE _THUROUGHLY_ PLANNED FOR IT!
 
 **Step 5:**   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches or aquire a giant switch to get more Ethernet ports).
 
