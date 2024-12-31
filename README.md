@@ -63,7 +63,7 @@ And some PC's needing a fresh install of Windows 10/11.
 
 ```Enviroset.bat```: I'm basically the installer. If you choose, you can set it up without me & do it yourself manually using the instructions below, but I do save time & make things easier. I live wherever you choose to put the ```SetupOSPackages.zip``` file as we're kind of a Package deal! If you want to see how I setup the environment for you, feel free to open me up in notepad to get a more detailed view of what I do.
 
-```windpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call ```setupOS.bat``` to run at boot; & I'm located inside the ```boot.wim``` image on the USB drive as well.
+```winpeshl.ini```: You've probably heard of me before if you know how the Windows Installation Media works. I'm basically a "more secure" fancy script file to an executable that runs when the USB drive boots up. I call ```setupOS.bat``` to run at boot; & I'm located inside the ```boot.wim``` image on the USB drive as well.
 
 ```usb.txt```: I'm a variable that tells ```enviroset.bat``` where the USB Drive is.
 
