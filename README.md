@@ -23,7 +23,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ## Tools You'll Need ##
 
-	A Host PC _running Windows 10 or later_(a computer that will host all of the installation media files & folders offline).
+	A Host PC _running Windows 10 or later_(the computer that will host all of the installation media files & folders offline).
 
 	A USB Drive that _You Have_ that's used for booting installation media(It has to be OS installer files you own of course).
 	
