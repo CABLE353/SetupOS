@@ -25,7 +25,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 	A Host PC _running Windows 10 or later_(the computer that will host all of the installation media files & folders offline).
 
-	A USB Drive that _You Have_ that's used for booting installation media(It has to be OS installer files you own of course).
+	A USB Drive that _You Have_ that is used for booting installation media(It has to be OS installer files you own of course).
 	
 	A network switch or wherever you can find a ton of ethernet ports for your Host PC(Wifi support Coming soon hopefully).
 
@@ -37,11 +37,11 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 	The files in this SetupOS Package folder.
 
-	Either DISM Gui 4.0 or NTLite if you decide to take the manual approach to setting up your environment(both of which I do _**not**_ own).
+	Either DISM Gui 4.0 or NTLite if you decide to take the manual approach to setting up your environment(both of which I _**do not**_ own).
  
  	Patience.
 
-	And some PC's needing a fresh install of Windows 10/11.
+	And some PCs needing a fresh install of Windows 10/11.
 
 
 
