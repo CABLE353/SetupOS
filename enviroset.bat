@@ -121,15 +121,10 @@ echo 2 - :
 echo 3 - :
 echo 4 - :
 echo 5 - :
-echo 6 - :
-echo 7 - :
-echo 8 - :
-echo 9 - :
-echo 10 - :
 echo E - Exits\Terminates Batch File(do it twice to reboot PC):
 SET /P M=Type 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Or E then press ENTER:
 IF %M%==0 (
-GOTO S
+GOTO 
 ) ELSE IF %M%==1 (
 GOTO W
 ) ELSE IF %M%==2 (
@@ -138,6 +133,8 @@ GOTO C
 GOTO x
 ) ELSE IF %M%==4 (
 GOTO B
+) ELSE IF %M%==5 (
+GOTO S
 ) ELSE (
 GOTO T
 )
