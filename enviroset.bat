@@ -1,6 +1,6 @@
 @echo Off 
 
-
+:F
 REM Check which letters are assigned to USB Drive
 echo Checking USB Drive Letter:
 if exist E:\sources (
@@ -55,10 +55,51 @@ SET usb=Y:
 SET usb=Z:
 ) else (
 echo Couldn't find USB mounted Directory!
+echo 
+echo Before Running Enviroset.bat, please be sure to insert your USB Installation Media!
+Pause
+echo to restart Enviroset.bat.
+GOTO F
 )
 
- 
+SET firstUse=0
 
+REM Each colon with a letter maps the batch file depending on the option chosen and executes commands within that bookmark. All bookmarks call this letter to go back to the top of the menu.
+:X
+
+REM This is the batch file GUI menu.
+cls
+echo.
+echo                     Welcome to the Enviornment Setup & Management Menu of SetupOS!
+echo ------------------------------------------------------------------------------------------------------
+echo Choose an option:
+echo.
+echo 0 - Full Setup(this does everything):
+echo 1 - Gather Info:
+echo 2 - Create The Win11 Folder:
+echo 3 - Copy USB Installation Media file & folder contents To Win11 Folder:
+echo 4 - Inject data files & SetupOSPackage.zip contents to make SetupOS Start Upon Booting From USB:
+echo 5 - See the Author(s) of this Project:
+echo E - Exits\Terminates Batch File(do it twice to reboot PC):
+SET /P M=Type 0, 1, 2, 3, 4, 5, Or E then press ENTER:
+IF %M%==0 (
+SET firstUse=1
+GOTO S
+) ELSE IF %M%==1 (
+GOTO S
+) ELSE IF %M%==2 (
+GOTO W
+) ELSE IF %M%==3 (
+GOTO C
+) ELSE IF %M%==4 (
+GOTO B
+) ELSE IF %M%==5 (
+GOTO A
+) ELSE (
+GOTO T
+)
+
+:S
 REM Gets required info about the host pc & usb drive:
 echo -----------------------------------------------------------------------
 echo To start off, this program will use the following to properly setup your SetupOS enviornment:
@@ -103,40 +144,10 @@ echo PC Hostname Gathered.        Local Username Gathered.        Local Password
 Pause
 echo -----------------------------------------------------------------------
 echo Don't panic! This data never leaves your PC or USB drive, & instead gets moved into the boot.wim image file as variables for setupOS.bat to call when connecting to the Host PC.
-
-
-REM Each colon with a letter maps the batch file depending on the option chosen and executes commands within that bookmark. All bookmarks call this letter to go back to the top of the menu.
-:X
-
-REM This is the batch file GUI menu.
-cls
-echo.
-echo                     Welcome to the Enviornment Setup & Management Menu of SetupOS!
-echo ------------------------------------------------------------------------------------------------------
-echo Choose an option:
-echo.
-echo 0 - 1st ever initial setup(this does everything):
-echo 1 - Recreate Win11 folder:
-echo 2 - :
-echo 3 - :
-echo 4 - :
-echo 5 - :
-echo E - Exits\Terminates Batch File(do it twice to reboot PC):
-SET /P M=Type 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Or E then press ENTER:
-IF %M%==0 (
-GOTO 
-) ELSE IF %M%==1 (
+IF firstUse=1 (
 GOTO W
-) ELSE IF %M%==2 (
-GOTO C
-) ELSE IF %M%==3 (
-GOTO x
-) ELSE IF %M%==4 (
-GOTO B
-) ELSE IF %M%==5 (
-GOTO S
-) ELSE (
-GOTO T
+) ELSE
+GOTO X
 )
 
 :W
@@ -146,6 +157,11 @@ if exist C:\Users\%user%\Win11 (
 echo Win11 folder already exists!
 ) else (
 mkdir C:\Users\%user%\Win11
+)
+IF firstUse=1 (
+GOTO C
+) ELSE
+GOTO X
 )
 
 :C
@@ -169,6 +185,11 @@ if exist C:\Users\%user%\Win11\SetupOSPackage (
 powershell -command "Expand-Archive -Path C:/Users/%user%/Downloads/SetupOSPackage.zip -DestinationPath C:\Users\%user%\Win11"
 )
 pause
+IF firstUse=1 (
+GOTO B
+) ELSE
+GOTO X
+)
 
 :B
 REM Applies Host PC Name to setupos.bat inside boot.wim:
@@ -210,8 +231,25 @@ xcopy C:\Users\%user%\Win11\SetupOSPackage\jobOps.bat C:\Users\%user%\Win11 /y
 xcopy C:\Users\%user%\Win11\SetupOSPackage\autosetup.vbs C:\Users\%user%\Win11 /y
 
 Pause
+IF firstUse=1 (
+GOTO d
+) ELSE
+GOTO X
+)
+
+:d
+echo Finished! Time to test it out! Enjoy!
+Pause
 GOTO X
 
+REM Authors page:
+:A
+echo ----------------------------------------------------------------------------------
+echo Current Project Authors:
+echo CABLE53 (Me)  :]
+echo 
+echo 
+echo ----------------------------------------------------------------------------------
 REM For Characters other than the options listed or available in the menu(Exception Handler):
 
 :T
