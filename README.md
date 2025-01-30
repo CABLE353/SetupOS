@@ -6,7 +6,7 @@
 Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler and primitive reverse pixie booting without the PXE"😁 (trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly, & help to hopefully better compete with the macOS DFU deployment (you're welcome MCRSFT🙄). SetupOS was originally built & tested within Windows 11, but since Windows 10 is similar, I'm also including that OS as supported probably even though it's dying in 2025, **but its behaviour hasn't been tested**.
 
 
-## Reasons Why & How It Works ##
+## Intro & How It Works ##
 
 With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands and revive this functionality in a different, but simple and rather primitive way. It all runs natively inside the WindowsPE environment, offline (if you want it to), and you can boot right into it using either the Installation Media provided by ms itself **or** the establishment you work for. The SetupOS script(Via the ```wpeshl.ini``` file in the Installation Media) is able to load as WindowsPE boots up. When the script starts, it will run a few commands to essentially "point" the Client PC to the Host PC.
 
