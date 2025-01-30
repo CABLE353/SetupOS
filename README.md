@@ -5,6 +5,9 @@
 
 Hello! CABLE53 here. These are the instructions & some quick details on how to use what I like to call a "simpler and primitive reverse pixie booting without the PXE"😁 (trust me it's all offline and safe) to install the Windows 11 OS on multiple PC's quickly, & help to hopefully better compete with the macOS DFU deployment (you're welcome MCRSFT🙄). SetupOS was originally built & tested within Windows 11, but since Windows 10 is similar, I'm also including that OS as supported probably even though it's dying in 2025, **but its behaviour hasn't been tested**.
 
+
+## Reasons Why & How It Works ##
+
 With PXE booting starting to fall out of fashion due to security issues, CEO issues, & whatnot; I've decided to take matters into my own hands and revive this functionality in a different, but simple and rather primitive way. It all runs natively inside the WindowsPE environment, offline (if you want it to), and you can boot right into it using either the Installation Media provided by ms itself **or** the establishment you work for. The SetupOS script(Via the ```wpeshl.ini``` file in the Installation Media) is able to load as WindowsPE boots up. When the script starts, it will run a few commands to essentially "point" the Client PC to the Host PC.
 
 The 1st one finds what the USB Drive mounted to, and runs the setup.exe from the USB drive in case you need to do it that way.
@@ -13,13 +16,20 @@ The 2nd initializes the network card a few times using the ```wpeutil Initialize
 
 The 3rd & final command will display the output of the ```ipconfig``` command, & a ```pause``` will be executed afterwards to give users a chance to view the output of the ```ipconfig``` command to make sure that the Client can see the Host(important) before it continues. After any key is pressed, then it will ```cls``` & finally load into the DLA menu explained more below.
 
-I Also made sure that in each ```.bat``` or ```.vbs``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does before you use it. I'm a bit of a noobe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept; albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever wants to test it or could use it, & maybe make better(less clunky).
+I Also made sure that in each ```.bat``` or ```.vbs``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does in more detail before you use it.
 
-If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known _**HERE**_ that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
+I'm a bit of a newbe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept; albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever might really need it for mass Windows Deployment.
+
+If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known _**HERE**_ that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network mapping/traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
 
 
 
 # Getting Started #
+
+## Files You'll Need To Download ##
+
+```SetupOSPackage.zip```
+```enviroset.bat```
 
 ## Tools You'll Need ##
 
