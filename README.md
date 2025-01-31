@@ -29,7 +29,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 ## Files You'll Need To Download ##
 
 [```SetupOSPackage.zip```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/SetupOSPackage.zip)
-[```enviroset.bat```](https://github.com/CABLE353/SetupOS/blob/main/enviroset.bat)
+[```enviroset.bat```]([https://github.com/CABLE353/SetupOS/blob/main/enviroset.bat](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset.bat))
 You can download them by right clicking on the file & saving the "link" as a file.
 
 ## Tools You'll Need ##
