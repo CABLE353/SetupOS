@@ -69,7 +69,7 @@ REM Each colon with a letter maps the batch file depending on the option chosen 
 
 REM This is the batch file GUI menu.
 cls
-echo.
+echo V1
 echo                     Welcome to the Enviornment Setup & Management Menu of SetupOS!
 echo ------------------------------------------------------------------------------------------------------
 echo Choose an option:
@@ -144,7 +144,7 @@ echo PC Hostname Gathered.        Local Username Gathered.        Local Password
 Pause
 echo -----------------------------------------------------------------------
 echo Don't panic! This data never leaves your PC or USB drive, & instead gets moved into the boot.wim image file as variables for setupOS.bat to call when connecting to the Host PC.
-IF firstUse=1 (
+IF %firstUse%==1 (
 GOTO W
 ) ELSE
 GOTO X
@@ -158,10 +158,10 @@ echo Win11 folder already exists!
 ) else (
 mkdir C:\Users\%user%\Win11
 )
-IF firstUse=1 (
+IF %firstUse%==1 (
 GOTO C
 ) ELSE
-GOTO X
+GOTO d
 )
 
 :C
@@ -185,10 +185,10 @@ if exist C:\Users\%user%\Win11\SetupOSPackage (
 powershell -command "Expand-Archive -Path C:/Users/%user%/Downloads/SetupOSPackage.zip -DestinationPath C:\Users\%user%\Win11"
 )
 pause
-IF firstUse=1 (
+IF %firstUse%==1 (
 GOTO B
 ) ELSE
-GOTO X
+GOTO d
 )
 
 :B
@@ -205,8 +205,11 @@ echo Please also make apsolute certain your computer won't turn off on this step
 echo ---------------------------------------------------------------------------------------
 Pause
 cls
-echo
+echo 
+echo ---------------------------------------------------------------------------------------
 echo Making SetupOS.bat run on USB boot; Please Wait...
+echo ---------------------------------------------------------------------------------------
+echo 
 :b
 if exist C:\Users\%user%\Win11\Temp (
 Erase /S C:\Users\%user%\Win11\Temp
@@ -231,14 +234,12 @@ xcopy C:\Users\%user%\Win11\SetupOSPackage\jobOps.bat C:\Users\%user%\Win11 /y
 xcopy C:\Users\%user%\Win11\SetupOSPackage\autosetup.vbs C:\Users\%user%\Win11 /y
 
 Pause
-IF firstUse=1 (
 GOTO d
-) ELSE
-GOTO X
-)
 
 :d
+echo ----------------------------------------------------------------------------------
 echo Finished! Time to test it out! Enjoy!
+echo ----------------------------------------------------------------------------------
 Pause
 GOTO X
 
