@@ -30,6 +30,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ```SetupOSPackage.zip```
 ```enviroset.bat```
+You can download them by right clicking on the file & saving the "link" as a file.
 
 ## Tools You'll Need ##
 
