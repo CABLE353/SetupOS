@@ -213,7 +213,7 @@ robocopy %usb% C:\Users\%user%\Win11 /e
 REM Extracts SetupOSPackage.zip:
 echo Extracting SetupOSPackage.zip to C:\Win11; Please Wait...
 if exist C:\Users\%user%\Win11\SetupOSPackage (
-    echo "Extraction destination already exists! Deleting old SetupOSPackage path and starting clean:"
+    echo Extraction destination already exists! Deleting old SetupOSPackage path and starting clean:
     Erase /S C:\Users\%user%\Win11\SetupOSPackage\
     rmdir C:\Users\%user%\Win11\SetupOSPackage
     goto x
@@ -233,7 +233,14 @@ GOTO d
 REM Applies Host PC Name to setupos.bat inside boot.wim:
 
 Cls 
-echo "This step of the enviornment setup uses DISM from the command prompt, and will need to run as an administrator. This is necessary to open boot.wim and plant the files: winpeshl.ini, setupOS.bat, switch.vbs, mountedD.vbs, and mountedE.vbs. This step will and should trigger a UAC Prompt."
+echo This step of the enviornment setup uses DISM from the command prompt, and will need to run as an administrator. This is necessary to open boot.wim and plant the following files: 
+echo winpeshl.ini
+echo setupOS.bat
+echo switch.vbs
+echo mountedD.vbs
+echo mountedE.vbs
+echo This step will and should trigger a UAC Prompt.
+echo.
 echo ---------------------------------------------------------------------------------------
 echo Some things to be aware of:
 echo ---------------------------------------------------------------------------------------
@@ -247,14 +254,14 @@ echo.
 echo ---------------------------------------------------------------------------------------
 echo Making SetupOS.bat run on USB boot; Please Wait...
 echo ---------------------------------------------------------------------------------------
-echo 
+echo.
 :b
 if exist C:\Users\%user%\Win11\Temp (
-Erase /S C:\Users\%user%\Win11\Temp
-rmdir C:\Users\%user%\Win11\Temp
+Erase /S /F /Q C:\Users\%user%\Win11\Temp
+rmdir /S /Q C:\Users\%user%\Win11\Temp
 goto b
 ) else (
-powershell New-Item -Path "C:\Users\%user%\Win11\Temp" -ItemType Directory
+powershell -Command "Start-Process powershell -ArgumentList '-Command', 'New-Item -Path "C:\Users\%user%\Win11\Temp" -ItemType Directory' -Verb RunAs"
 )
 
 
