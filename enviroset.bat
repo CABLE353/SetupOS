@@ -62,7 +62,21 @@ echo to restart Enviroset.bat.
 GOTO F
 )
 
+REM Downloads SetupOSPackage.zip:
 
+:D
+Cls
+echo Downloading SetupOSPackage.zip:
+
+powershell Invoke-WebRequest -Uri "https://github.com/CABLE353/SetupOS/raw/refs/heads/main/SetupOSPackage.zip" -OutFile "SetupOSPackage.zip"
+
+IF exist SetupOSPackage.zip (
+echo Download Succeeded! Or at least the file exists...
+Pause
+GOTO X
+) ELSE (
+echo Download Failed! Please check your internet connection.
+)
 
 REM Each colon with a letter maps the batch file depending on the option chosen and executes commands within that bookmark. All bookmarks call this letter to go back to the top of the menu.
 :X
@@ -81,7 +95,8 @@ echo 1 - Gather Info:
 echo 2 - Create The Win11 Folder:
 echo 3 - Copy USB Installation Media file and folder contents To Win11 Folder:
 echo 4 - Inject data files and SetupOSPackage.zip contents to make SetupOS launch upon booting From USB:
-echo 5 - See the Author(s) of this Project:
+echo 5 - 
+echo 6 - See the Author(s) of this Project:
 echo E - Exits\Terminates Batch File:
 SET /P M=Type 0, 1, 2, 3, 4, 5, Or E then press ENTER:
 IF %M%==0 (
@@ -102,6 +117,8 @@ cls
 GOTO B
 ) ELSE IF %M%==5 (
 cls
+GOTO D
+) ELSE IF %M%==6 (
 GOTO A
 ) ELSE IF %M%==E (
 exit
