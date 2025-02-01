@@ -62,52 +62,63 @@ echo to restart Enviroset.bat.
 GOTO F
 )
 
-SET firstUse=0
+
 
 REM Each colon with a letter maps the batch file depending on the option chosen and executes commands within that bookmark. All bookmarks call this letter to go back to the top of the menu.
 :X
 
+SET firstUse=false
+
 REM This is the batch file GUI menu.
 cls
 echo V1
-echo                     Welcome to the Enviornment Setup & Management Menu of SetupOS!
+echo                    Welcome to the Enviornment Setup and Management Menu of SetupOS!
 echo ------------------------------------------------------------------------------------------------------
 echo Choose an option:
 echo.
 echo 0 - Full Setup(this does everything):
 echo 1 - Gather Info:
 echo 2 - Create The Win11 Folder:
-echo 3 - Copy USB Installation Media file & folder contents To Win11 Folder:
-echo 4 - Inject data files & SetupOSPackage.zip contents to make SetupOS Start Upon Booting From USB:
+echo 3 - Copy USB Installation Media file and folder contents To Win11 Folder:
+echo 4 - Inject data files and SetupOSPackage.zip contents to make SetupOS launch upon booting From USB:
 echo 5 - See the Author(s) of this Project:
-echo E - Exits\Terminates Batch File(do it twice to reboot PC):
+echo E - Exits\Terminates Batch File:
 SET /P M=Type 0, 1, 2, 3, 4, 5, Or E then press ENTER:
 IF %M%==0 (
-SET firstUse=1
+SET firstUse=true
+cls
 GOTO S
 ) ELSE IF %M%==1 (
+cls
 GOTO S
 ) ELSE IF %M%==2 (
+cls
 GOTO W
 ) ELSE IF %M%==3 (
+cls
 GOTO C
 ) ELSE IF %M%==4 (
+cls
 GOTO B
 ) ELSE IF %M%==5 (
+cls
 GOTO A
+) ELSE IF %M%==E (
+exit
 ) ELSE (
+cls
 GOTO T
 )
 
 :S
-REM Gets required info about the host pc & usb drive:
+REM Gets required info about the host pc and usb drive:
 echo -----------------------------------------------------------------------
 echo To start off, this program will use the following to properly setup your SetupOS enviornment:
-echo 
+echo. 
 echo 1. Your Host PC Hostname.
-echo 
+echo. 
 echo 2. Your Host PC Local Username.
-echo 
+echo. 
 echo 3. Your Host PC Local Password.
 echo -----------------------------------------------------------------------
 Pause
@@ -125,7 +136,7 @@ echo -----------------------------------------------------------------------
 echo Getting info....
 echo -----------------------------------------------------------------------
 echo PC Hostname Gathered.
-echo Please enter your username(You can find it in C:\Users & look for the folder with your username on it):
+echo Please enter your username(You can find it in C:\Users and look for the folder with your username on it):
 SET /P user=
 echo %user% > yourUsername.txt
 Cls
@@ -143,28 +154,36 @@ echo -----------------------------------------------------------------------
 echo PC Hostname Gathered.        Local Username Gathered.        Local Password Gathered.
 Pause
 echo -----------------------------------------------------------------------
-echo Don't panic! This data never leaves your PC or USB drive, & instead gets moved into the boot.wim image file as variables for setupOS.bat to call when connecting to the Host PC.
-IF %firstUse%==1 (
+echo Don't panic! This data never leaves your PC or USB drive, and instead gets moved into the boot.wim image file as variables for setupOS.bat to call when connecting to the Host PC.
+IF %firstUse%==true (
+%firstUse%
+pause
 GOTO W
-) ELSE
-GOTO X
+) else if %firstUse%==false (
+pause
+GOTO B
 )
-
+%firstUse%
+pause
 :W
+cls
 REM Creates Necessary Win11 Directory:
-echo Creating Win11 folder on root of C drive...
+echo Creating Win11 folder in the users folder of the C drive...
 if exist C:\Users\%user%\Win11 (
 echo Win11 folder already exists!
 ) else (
 mkdir C:\Users\%user%\Win11
 )
-IF %firstUse%==1 (
+IF %firstUse%==true (
+Pause
 GOTO C
-) ELSE
+) else if %firstUse%==false (
+pause
 GOTO d
 )
 
 :C
+cls
 REM Copies installer files from USB Drive to Win11 Folder:
 echo Copying USB Installer Files to C:\Win11; Please Wait...
 if exist C:\Users\%user%\Win11\sources (
@@ -184,10 +203,12 @@ if exist C:\Users\%user%\Win11\SetupOSPackage (
 ) else (
 powershell -command "Expand-Archive -Path C:/Users/%user%/Downloads/SetupOSPackage.zip -DestinationPath C:\Users\%user%\Win11"
 )
+
+IF %firstUse%==true (
 pause
-IF %firstUse%==1 (
 GOTO B
-) ELSE
+) else if %firstUse%==false (
+pause
 GOTO d
 )
 
@@ -195,17 +216,17 @@ GOTO d
 REM Applies Host PC Name to setupos.bat inside boot.wim:
 
 Cls 
-echo "This step of the enviornment setup uses DISM from the command prompt, & will need to run as an administrator. This is necessary to open boot.wim & plant the files: winpeshl.ini, setupOS.bat, switch.vbs, mountedD.vbs, & mountedE.vbs. This step will & should trigger a UAC Prompt."
+echo "This step of the enviornment setup uses DISM from the command prompt, and will need to run as an administrator. This is necessary to open boot.wim and plant the files: winpeshl.ini, setupOS.bat, switch.vbs, mountedD.vbs, and mountedE.vbs. This step will and should trigger a UAC Prompt."
 echo ---------------------------------------------------------------------------------------
 echo Some things to be aware of:
 echo ---------------------------------------------------------------------------------------
 echo Please DO NOT INTERUPT THIS STEP or boot.wim will be corrupted!
-echo 
+echo. 
 echo Please also make apsolute certain your computer won't turn off on this step or do any other shinanagons:
 echo ---------------------------------------------------------------------------------------
 Pause
 cls
-echo 
+echo. 
 echo ---------------------------------------------------------------------------------------
 echo Making SetupOS.bat run on USB boot; Please Wait...
 echo ---------------------------------------------------------------------------------------
@@ -237,6 +258,7 @@ Pause
 GOTO d
 
 :d
+cls
 echo ----------------------------------------------------------------------------------
 echo Finished! Time to test it out! Enjoy!
 echo ----------------------------------------------------------------------------------
@@ -245,13 +267,16 @@ GOTO X
 
 REM Authors page:
 :A
+cls
 echo ----------------------------------------------------------------------------------
 echo Current Project Authors:
 echo CABLE53 (Me)  :]
-echo 
-echo 
+echo. 
+echo. 
 echo ----------------------------------------------------------------------------------
+pause
 REM For Characters other than the options listed or available in the menu(Exception Handler):
+GOTO X
 
 :T
 cls
