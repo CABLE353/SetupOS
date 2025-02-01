@@ -64,7 +64,7 @@ GOTO F
 
 REM Downloads SetupOSPackage.zip:
 
-:D
+:G
 Cls
 echo Downloading SetupOSPackage.zip:
 
@@ -95,7 +95,7 @@ echo 1 - Gather Info:
 echo 2 - Create The Win11 Folder:
 echo 3 - Copy USB Installation Media file and folder contents To Win11 Folder:
 echo 4 - Inject data files and SetupOSPackage.zip contents to make SetupOS launch upon booting From USB:
-echo 5 - 
+echo 5 - Download SetupOSPackage.zip from GitHub:
 echo 6 - See the Author(s) of this Project:
 echo E - Exits\Terminates Batch File:
 SET /P M=Type 0, 1, 2, 3, 4, 5, Or E then press ENTER:
@@ -117,7 +117,7 @@ cls
 GOTO B
 ) ELSE IF %M%==5 (
 cls
-GOTO D
+GOTO G
 ) ELSE IF %M%==6 (
 GOTO A
 ) ELSE IF %M%==E (
