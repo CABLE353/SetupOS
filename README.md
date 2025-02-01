@@ -26,11 +26,10 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 # Getting Started #
 
-## Files You'll Need To Download ##
+## Download and run the Enviornment Setup Batch file ##
 
-[```SetupOSPackage.zip```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/SetupOSPackage.zip)
 [```enviroset.bat```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset.bat)
-You can download them by right clicking on the file & saving the "link" as a file.
+You can download it by right clicking on the file & saving the "link" as a file.
 
 ## Tools You'll Need ##
 
