@@ -16,9 +16,9 @@ The 2nd initializes the network card a few times using the ```wpeutil Initialize
 
 The 3rd & final command will display the output of the ```ipconfig``` command, & a ```pause``` will be executed afterwards to give users a chance to view the output of the ```ipconfig``` command to make sure that the Client can see the Host(important) before it continues. After any key is pressed, then it will ```cls``` & finally load into the DLA menu explained more below.
 
-I Also made sure that in each ```.bat``` or ```.vbs``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does in more detail before you use it.
+I also made sure that in each ```.bat``` or ```.vbs``` file, each command is explained; & if you don't like something(or get suspicious about anything😥), well since it's just command prompt, you're free to open notepad or whatever & edit/lookover/examine this stuff to learn what it does in more detail before you use it; I have nothing to hide.
 
-I'm a bit of a newbe, so please be patient. This is my first ever GitHub Release. This all took me a few months to update & grind out but I finally got a working concept; albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever might really need it for mass Windows Deployment.
+I'm a bit of a newbe, so please be patient. This is my first ever GitHub release. This all took me a few months to update & grind out but I finally got a working concept; albeit a little touchy, but it works; & it's something cool that I wanted to share to whomever might really want/need it for mass Windows Deployment.
 
 If you choose(_not recomended_) to share an internet connection with the Host PC & allowing that connection through to the Switch you plan to plug your Client PC's into, let it be known _**HERE**_ that depending on how many computers & ports you plan to have, an IP address will have to be assigned to each Client. Plan for alot of network mapping/traffic since this program points to files & installation media on the Host PC & transfers it through to the client via an ethenet cable(or WiFi hopefully coming soon).
 
@@ -85,6 +85,8 @@ And some PC's needing a fresh install of Windows 10/11.
 
 
 ## Manual Setup Instructions ##
+**Please note that Step 3b of the manual setup instructions needs to be used for the ```enviroset.bat``` automatic setup as well.**
+If the ```enviroset.bat``` file isn't working for whatever reason (cough cough Powershell cough & admin rights cough), then you can try these manual setup steps:
 
 **Step 1:**   Start your Host PC with an internet connection to run software updates, then when updates are done unplug or disconnect it from the internet, and create a folder named ```Win11```, in your user folder on the C drive(System Drive).
 
@@ -92,13 +94,13 @@ And some PC's needing a fresh install of Windows 10/11.
 
 **Step 3a:**   Share this folder & its contents to the Everyone group in the network share folder properties.
 
-**Step 3b**:  Go to ```Settings>Advanced Network Settings>Advanced Sharing Settings```, and switch off the "Password Protection" option underneath the "All Networks" dropdown since Windows 11 at the time of writting is still going through some design changes away from the traditional tools & settings by slowly moving all or most of the settings out of Control Panel, & either putting them into the Settings Applet or turning them into their own Applets. The communication with this setting is a little weird with the Network Share side of things, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password, as it thinks it's always an incorrect password(I have no idea why or how this is, but it is🤷‍♂️).
+**Step 3b**:  Go to ```Settings>Advanced Network Settings>Advanced Sharing Settings```, and switch off the "Password Protection" option underneath the "All Networks" dropdown since Windows 11 at the time of writting is still going through some design changes away from the traditional tools & settings by slowly moving all or most of the settings out of Control Panel, & either putting them into the Settings Applet or turning them into their own Applets. The communication with this setting is a little weird with the Network Share side of things, so while the Applet switch is off it is still enabled in the system & will function as if the switch is still on. If the Applet switch isn't turned off, then when the "net use" command is run, it won't accept the correct password to access the installation files on the Host PC, as it thinks it's always an incorrect password(I have no idea why or how this is, but it is🤷‍♂️).
 
 **Step 4:**   Proceed to connect a network switch to your computer via Ethernet cable(Switch<-->Host PC). DO NOT PLUG YOUR SWITCH/SWITCHES INTO THE INTERNET NETWORK UNLESS YOU'VE _THUROUGHLY_ PLANNED FOR IT!
 
 **Step 5:**   Connect as many Ethernet Cables that your switch can handle(You may also daisy chain switches or aquire a giant switch to get more Ethernet ports).
 
-**Setp 6a:**   To run SetupOS upon booting the USB drive, mount the boot.wim file in either DISM GUI 4.0 or NTLite. If you're using DISM GUI 4.0, then before you mount the image, put the index number dropdown menu to 2, & then mount it. For NTLite, 
+**Setp 6a:**   To run SetupOS upon booting the USB drive, mount the boot.wim file in either DISM GUI 4.0 or NTLite. If you're using DISM GUI 4.0, then before you mount the image, put the index number dropdown menu to 2, & then mount it. For NTLite, click on the usb drive letter mount dropdown, & in the list of available images NTLite found in the usb device, double click on the boot.wim image with the index of 2 associated with its dropdown mounting options.
 
 **Step 6c:**   Create the following files using the network name, local username, & password of the Host PC:
 ```NAMEOFYOURPC.txt```
