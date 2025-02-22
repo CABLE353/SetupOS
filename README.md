@@ -32,6 +32,8 @@ Please refer to [**Step 3b**](https://github.com/CABLE353/SetupOS/tree/main#:~:t
 [```enviroset.bat```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset.bat)
 You can download it by right clicking on the file & saving the "link" as a file.
 
+If you have any issues or experience any bugs, please report them and then maybe give the [**Manual Setup Instructions**](https://github.com/CABLE353/SetupOS/tree/main?tab=readme-ov-file#manual-setup-instructions) a try🙏.
+
 ## Tools You'll Need ##
 
 A Host PC _running Windows 10 or later_(the computer that will host all of the installation media files & folders offline).
