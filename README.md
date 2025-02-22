@@ -28,6 +28,7 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 
 ## Download and run the Enviornment Setup Batch file ##
 Please refer to [**Step 3b**](https://github.com/CABLE353/SetupOS/tree/main#:~:text=share%20folder%20properties.-,Step%203b%3A,-Go%20to%20Settings) of the manual setup instructions before using the ```enviroset.bat``` file to setup your enviornment.
+
 [```enviroset.bat```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset.bat)
 You can download it by right clicking on the file & saving the "link" as a file.
 
