@@ -8,5 +8,5 @@ Enjoy!!!
 
 
 # New Features List #
-```WiFi integration.
-UI changes to implement the new WiFi structure.```
+```WiFi integration.```
+```UI changes to implement the new WiFi structure.```
