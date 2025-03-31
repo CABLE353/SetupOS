@@ -9,7 +9,7 @@ Enjoy!!!
 
 ## New Features List ##
 
-### 2025 ###
+### <ins>2025:</ins> ###
 WiFi integration.
 
 UI changes to implement the new WiFi structure.
