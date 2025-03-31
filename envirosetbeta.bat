@@ -68,7 +68,7 @@ REM Downloads SetupOSPackage.zip:
 Cls
 echo Downloading SetupOSPackage.zip:
 
-powershell Invoke-WebRequest -Uri "https://github.com/CABLE353/SetupOS/raw/refs/heads/main/SetupOSPackage.zip" -OutFile "SetupOSPackage.zip"
+powershell Invoke-WebRequest -Uri "https://github.com/CABLE353/SetupOS/raw/refs/heads/SetupOSBeta/SetupOSPackage.zip" -OutFile "SetupOSPackage.zip"
 
 IF exist SetupOSPackage.zip (
 echo Download Succeeded! Or at least the file exists...
