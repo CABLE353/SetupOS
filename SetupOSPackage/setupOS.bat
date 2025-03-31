@@ -5,7 +5,7 @@ if exist E:\sources (
 ) else if exist D:\sources (
   mountedD.vbs
 ) Else (
-echo Couldn't Find USB Drive Letter Mount! If this PC is a Dell, the Raid Storage option is probably set & needs to be changed to NvMe Storage in the Storage section of the BIOS. Press F2 at boot to access the BIOS Settings.
+echo Couldn't Find USB Drive Letter Mount! If this PC is a Dell, the Raid Storage option is probably set & needs to be changed to NVMe Storage in the Storage Setting section of the BIOS. Press F2 at boot to access the BIOS Settings.
 )
 
 REM Sets pc name, user name, & password variables:
@@ -17,6 +17,29 @@ for /f "delims=" %%a in (yourPassword.txt) do set yourPassword=%%a
 REMItitializes the Network card on the Client PC
 :r
 cls
+REM If the connection isn't working or the address is incorrect, this allows the User to re-run the network initialization step.
+
+REM Checks connection from Client PC to Host PC
+echo.
+echo.
+echo.
+echo                                               Set Network Type
+echo ---------------------------------------------------------------------------------------------------------------------
+echo 1 - RJ45(Ethernet).
+echo 2 - Wifi(Wireless).
+echo.
+SET /P N=Choose the type of connection you need:
+IF %N%==1 (
+GOTO RJ
+) ELSE IF %N%==2 (
+GOTO Wifi
+) ELSE (
+GOTO Tt
+)
+:RJ
+cls
+                                              Set Network Type
+echo ---------------------------------------------------------------------------------------------------------------------
 echo Initializing Network; Please Wait:
 wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
@@ -24,26 +47,39 @@ wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
-wpeutil InitializeNetwork /NoWait
-wpeutil InitializeNetwork /NoWait
-wpeutil InitializeNetwork /NoWait
-wpeutil InitializeNetwork /NoWait
+goto connected
 
-REM If the connection isn't working or the address is incorrect, this allows the User to re-run the network initialization step.
+:Wifi
+cls
+                                              Set Network Type
+echo ---------------------------------------------------------------------------------------------------------------------
+echo Initializing WiFi; Please Wait:
+wpeutil InitializeNetwork /NoWait
+wpeutil InitializeNetwork /NoWait
+wpeutil InitializeNetwork /NoWait
+wpeutil InitializeNetwork /NoWait
+net start wlansvc
+netsh wlan show interfaces
+netsh wlan show networks
+netsh wlan add profile filename="X:\Profiles\wifi-profile.xml"
+netsh wlan connect name="YourNetworkSSID"
+goto connected
 
+REM If the connection isn't working or the address is incorrect, this option allows the User to re-run the network initialization step.
+:connected
 REM Checks connection from Client PC to Host PC
 ipconfig
 echo.
 echo.
 echo.
-echo Press `r` if the connection isn't working or correct press `c` to continue.
+echo Press `r` to select a different connection type and retry the connection test. Press `c` to continue to the DLA menu.
 SET /P M=The Script will exit if nothing is entered:
 IF %M%==r (
 GOTO r
 ) ELSE IF %M%==c (
 GOTO X
 ) ELSE (
-GOTO X
+GOTO t
 )
 
 REM Each colon with a letter maps the batch file depending on the option chosen and executes commands within that bookmark. All bookmarks call this letter to go back to the top of the menu.
@@ -199,6 +235,25 @@ exit
 
 
 REM For Characters other than the options listed or available(Exception Handler):
+
+
+:t
+cls
+echo Please choose a valid option from the menu!
+echo.
+echo.
+pause /t 7 /nobreak
+GOTO connected
+
+
+:Tt
+cls
+echo Please choose a valid option from the menu!
+echo.
+echo.
+pause /t 7 /nobreak
+GOTO r
+
 
 :T
 cls
