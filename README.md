@@ -7,6 +7,9 @@ Hello! CABLE53 here. This is the beta version where features are added but not t
 Enjoy!!!
 
 
-# New Features List #
-```WiFi integration.```
-```UI changes to implement the new WiFi structure.```
+## New Features List ##
+
+### 2025 ###
+WiFi integration.
+
+UI changes to implement the new WiFi structure.
