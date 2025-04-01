@@ -46,7 +46,7 @@ robocopy %usb% "%target%" /e >> %logfile%
 
 REM 5. Download SetupOSPackage.zip
 echo Downloading SetupOSPackage.zip...
-powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/CABLE353/SetupOS/SetupOSBeta/SetupOSPackage.zip' -OutFile 'SetupOSPackage.zip'" >> %logfile%
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/CABLE353/SetupOS/SetupOS/SetupOSPackage.zip' -OutFile 'SetupOSPackage.zip'" >> %logfile%
 
 if exist SetupOSPackage.zip (
     echo Download succeeded. >> %logfile%
