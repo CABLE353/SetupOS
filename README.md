@@ -30,7 +30,8 @@ If you choose(_not recomended_) to share an internet connection with the Host PC
 Please refer to [**Step 3b**](https://github.com/CABLE353/SetupOS/tree/main#:~:text=share%20folder%20properties.-,Step%203b%3A,-Go%20to%20Settings) of the manual setup instructions before using the ```enviroset.bat``` file to setup your enviornment.
 
 [```enviroset.bat```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset.bat)
-You can download it by right clicking on the file & saving the "link" as a file.
+[```enviroset-win10.bat```](https://github.com/CABLE353/SetupOS/raw/refs/heads/main/enviroset-win10.bat)
+You can download it by right clicking on the file & saving the "link" as a file. Be sure to run the windows 10 version as administrator.
 
 If you have any issues or experience any bugs, please report them and then maybe give the [**Manual Setup Instructions**](https://github.com/CABLE353/SetupOS/tree/main?tab=readme-ov-file#manual-setup-instructions) a try🙏.
 
