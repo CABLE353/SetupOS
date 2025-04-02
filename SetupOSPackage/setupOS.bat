@@ -58,11 +58,8 @@ wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
 wpeutil InitializeNetwork /NoWait
-net start wlansvc
-netsh wlan show interfaces
-netsh wlan show networks
-netsh wlan add profile filename="X:\Profiles\wifi-profile.xml"
-netsh wlan connect name="YourNetworkSSID"
+X:\PENetwork\PENetwork.exe
+pause
 goto connected
 
 REM If the connection isn't working or the address is incorrect, this option allows the User to re-run the network initialization step.
